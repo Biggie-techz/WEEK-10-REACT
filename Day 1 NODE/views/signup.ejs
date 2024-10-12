@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EJS || Signup</title>
+
+    <style>
+      :root {
+        --primary-color: royalblue;
+        --secondary-color: rgba(105, 105, 105, 0.397);
+        --secondary-color2: grey;
+      }
+
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        font-family: "Roboto", sans-serif;
+      }
+
+      body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        background-image: url(../images/signup-bg.jpg);
+        background-position: center;
+        backdrop-filter: blur(5px);
+        background-size: cover;
+      }
+
+      .form {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        max-width: 550px;
+        background-color: #ffffffc7;
+        backdrop-filter: blur(20px);
+        color: fff;
+        padding: 40px 20px;
+        padding-inline-end: 40px;
+        border-radius: 20px;
+        position: relative;
+      }
+
+      ::-webkit-outer-spin-button,
+      ::-webkit-inner-spin-button {
+        display: none;
+      }
+
+      .title {
+        font-size: 3rem;
+        color: var(--primary-color);
+        font-weight: 600;
+        letter-spacing: -1px;
+        position: relative;
+        display: flex;
+        align-items: center;
+        padding-left: 30px;
+      }
+
+      .title::before,
+      .title::after {
+        position: absolute;
+        content: "";
+        height: 16px;
+        width: 16px;
+        border-radius: 50%;
+        left: 0px;
+        background-color: var(--primary-color);
+      }
+
+      .title::before {
+        width: 18px;
+        height: 18px;
+        background-color: var(--primary-color);
+      }
+
+      .title::after {
+        width: 18px;
+        height: 18px;
+        animation: pulse 1s linear infinite;
+      }
+
+      .message,
+      .signin {
+        color: rgba(88, 87, 87, 0.822);
+        font-size: 1rem;
+      }
+
+      .signin {
+        text-align: center;
+      }
+
+      .signin a {
+        color: var(--primary-color);
+        text-decoration: underline;
+        cursor: pointer;
+      }
+
+      .signin a:hover {
+        text-decoration: underline var(--primary-color);
+      }
+
+      .flex {
+        display: flex;
+        width: 100%;
+        gap: 6px;
+      }
+
+      .form label {
+        position: relative;
+      }
+
+      .form label .input {
+        width: 100%;
+        padding: 10px 10px 20px 10px;
+        outline: 0;
+        border: 1px solid var(--secondary-color);
+        border-radius: 10px;
+        background-color: transparent;
+        font-size: 1rem;
+      }
+
+      .form label .input + span {
+        position: absolute;
+        left: 10px;
+        top: 15px;
+        color: #000000a6;
+        font-size: 1.1rem;
+        cursor: text;
+        transition: 0.3s ease;
+      }
+
+      .form label .input:focus,
+      .form label .input:valid {
+        outline: 2px solid var(--secondary-color);
+      }
+
+      .form label .input:focus + span,
+      .form label .input:valid + span {
+        top: 30px;
+        font-size: 0.8rem;
+        font-weight: 500;
+        padding: 2px 5px;
+        border-radius: 5px;
+        border-right: 1px solid var(--secondary-color);
+        border-left: 1px solid var(--secondary-color);
+      }
+
+      .passwordLabel input.input:valid {
+        margin-bottom: 32.5px;
+      }
+
+      .submit {
+        border: none;
+        outline: none;
+        background-color: var(--primary-color);
+        padding: 10px;
+        border-radius: 10px;
+        text-align: center;
+        text-decoration: none;
+        color: #fff;
+        font-size: 1.5rem;
+        transform: 0.3s ease;
+        width: 100%;
+      }
+
+      .submit:hover {
+        background-color: rgb(56, 90, 194);
+      }
+    </style>
+  </head>
+  <body>
+    <form class="form" id="form" action="/register" method="POST">
+      <p class="title">Sign up</p>
+      <p class="message">Register now and get full access to our app.</p>
+      <label>
+        <input required type="email" class="input" name="email" />
+        <span id="emailPlaceholder">Email</span>
+      </label>
+
+      <label>
+        <input required type="number" class="input" name="phone" />
+        <span id="phonePlaceholder">Phone number</span>
+      </label>
+
+      <label class="passwordLabel">
+        <input required type="password" class="input" name="password" />
+        <span id="passwordPlaceholder">Password</span>
+      </label>
+      <label>
+        <input required type="password" class="input" name="confirmPassword" />
+        <span id="confirmPasswordPlaceholder">Confirm password</span>
+      </label>
+      <button class="btn submit" id="submit" type="submit">Sign up</button>
+      <p class="signin">
+        Already have an acount ? <a href="login" id="haveAnAccount">Sign in</a>
+      </p>
+    </form>
+  </body>
+</html>

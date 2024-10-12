@@ -1,0 +1,21 @@
+DAY 1
+
+REACT
+
+to install react run "npx create-react-app [name of project]"
+
+open the new project in code editor
+
+run "npm start"
+
+locate app.js
+import "./App.css
+
+index.css is a global styling
+
+create new .css file and .js file for every component you create
+
+
+DAY 2
+styling in react
+inline internal and externa styling
