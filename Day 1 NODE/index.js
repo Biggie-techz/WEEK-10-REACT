@@ -6,6 +6,7 @@ const app = express();
 const ejs = require("ejs");
 
 let userArray = [];
+let todo = [];
 // TO RENDER EJS FILES
 app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: true }));
@@ -21,6 +22,28 @@ app.post("/register", (request, response) => {
   userArray.push(request.body);
   console.log(userArray);
   response.redirect("/login");
+});
+
+app.post("/todo", (req, res) => {
+  // console.log(req.body);
+  todo.push(req.body);
+  console.log(todo);
+  res.redirect("/todo")
+});
+
+app.post("/todo/delete/:index", (req, res) => {
+  console.log(req.params);
+  const { index } = req.params;
+  todo.splice(index, 1);
+  res.redirect("/todo");
+});
+
+app.get("/dashboard", (request, response) => {
+  response.render("dashboard");
+});
+
+app.get("/todo", (req, res) => {
+  res.render("todo", { todo });
 });
 
 app.get("/login", (request, response) => {
